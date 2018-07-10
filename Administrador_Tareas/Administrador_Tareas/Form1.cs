@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Diagnostics;
+
+
 
 namespace Administrador_Tareas
 {
@@ -16,8 +19,34 @@ namespace Administrador_Tareas
         public Form1()
         {
             InitializeComponent();
+            timer1.Enabled = true;
+            procesos();
         }
+        public void procesos()
+        {
+            dgv.Columns.Add("primera", "ID");
+            dgv.Columns.Add("Segunda", "Nombre");
+            dgv.Columns.Add("Tercera", "Memoria RAM");
+            dgv.Columns.Add("Tercera", "Memoria Virtual");
+            dgv.Columns.Add("Tercera", "CPU");
+            try
+            {
 
+
+                Process[] procesos;
+                procesos = Process.GetProcesses();
+                foreach (Process pro in procesos)
+                {
+                    dgv.Rows.Add(pro.Id, pro.ProcessName, (pro.PeakWorkingSet64/1024)/1024,pro.VirtualMemorySize64/1024/1024, pro.SessionId +1 );
+                     
+
+                }
+            } catch (Exception e)
+            {
+                MessageBox.Show("Error al intentar abrir el programa", "Error al Inicio", MessageBoxButtons.OK);
+
+            }
+        }
         private void cerrar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -46,6 +75,11 @@ namespace Administrador_Tareas
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void panel_titulo_Paint(object sender, PaintEventArgs e)
+        {
+                
         }
     }
 }

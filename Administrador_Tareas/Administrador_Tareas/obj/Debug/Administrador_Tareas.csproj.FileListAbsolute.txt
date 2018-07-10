@@ -8,3 +8,13 @@ C:\Users\Alejandro Cordova\source\repos\Administrador_Tareas\Administrador_Tarea
 C:\Users\Alejandro Cordova\source\repos\Administrador_Tareas\Administrador_Tareas\obj\Debug\Administrador_Tareas.csproj.CoreCompileInputs.cache
 C:\Users\Alejandro Cordova\source\repos\Administrador_Tareas\Administrador_Tareas\obj\Debug\Administrador_Tareas.exe
 C:\Users\Alejandro Cordova\source\repos\Administrador_Tareas\Administrador_Tareas\obj\Debug\Administrador_Tareas.pdb
+C:\Users\Alejandro Cordova\Documents\GitHub\Admin_Procesos\Administrador_Tareas\Administrador_Tareas\bin\Debug\Administrador_Tareas.exe.config
+C:\Users\Alejandro Cordova\Documents\GitHub\Admin_Procesos\Administrador_Tareas\Administrador_Tareas\bin\Debug\Administrador_Tareas.exe
+C:\Users\Alejandro Cordova\Documents\GitHub\Admin_Procesos\Administrador_Tareas\Administrador_Tareas\bin\Debug\Administrador_Tareas.pdb
+C:\Users\Alejandro Cordova\Documents\GitHub\Admin_Procesos\Administrador_Tareas\Administrador_Tareas\obj\Debug\Administrador_Tareas.csprojAssemblyReference.cache
+C:\Users\Alejandro Cordova\Documents\GitHub\Admin_Procesos\Administrador_Tareas\Administrador_Tareas\obj\Debug\Administrador_Tareas.Form1.resources
+C:\Users\Alejandro Cordova\Documents\GitHub\Admin_Procesos\Administrador_Tareas\Administrador_Tareas\obj\Debug\Administrador_Tareas.Properties.Resources.resources
+C:\Users\Alejandro Cordova\Documents\GitHub\Admin_Procesos\Administrador_Tareas\Administrador_Tareas\obj\Debug\Administrador_Tareas.csproj.GenerateResource.cache
+C:\Users\Alejandro Cordova\Documents\GitHub\Admin_Procesos\Administrador_Tareas\Administrador_Tareas\obj\Debug\Administrador_Tareas.csproj.CoreCompileInputs.cache
+C:\Users\Alejandro Cordova\Documents\GitHub\Admin_Procesos\Administrador_Tareas\Administrador_Tareas\obj\Debug\Administrador_Tareas.exe
+C:\Users\Alejandro Cordova\Documents\GitHub\Admin_Procesos\Administrador_Tareas\Administrador_Tareas\obj\Debug\Administrador_Tareas.pdb
