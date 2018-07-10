@@ -41,6 +41,7 @@ namespace Administrador_Tareas
                      
 
                 }
+                
             } catch (Exception e)
             {
                 MessageBox.Show("Error al intentar abrir el programa", "Error al Inicio", MessageBoxButtons.OK);
