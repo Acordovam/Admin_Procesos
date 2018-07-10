@@ -25,23 +25,25 @@ namespace Administrador_Tareas
         public void procesos()
         {
             dgv.Columns.Add("primera", "ID");
-            dgv.Columns.Add("Segunda", "Nombre");
-            dgv.Columns.Add("Tercera", "Memoria RAM");
-            dgv.Columns.Add("Tercera", "Memoria Virtual");
-            dgv.Columns.Add("Tercera", "CPU");
+            dgv.Columns.Add("Segunda", "Proceso");
+            dgv.Columns.Add("Tercera", "Nombre");
+            dgv.Columns.Add("Septima", "Ventana");
+            dgv.Columns.Add("Cuarta", "Memoria RAM");
+            dgv.Columns.Add("Quinta", "Memoria Virtual");
+            dgv.Columns.Add("Sexta", "CPU");
+            dgv.Columns.Add("Novena", "Estado");
             try
             {
 
 
                 Process[] procesos;
+                String estado;
                 procesos = Process.GetProcesses();
                 foreach (Process pro in procesos)
                 {
-                    dgv.Rows.Add(pro.Id, pro.ProcessName, (pro.PeakWorkingSet64/1024)/1024,pro.VirtualMemorySize64/1024/1024, pro.SessionId +1 );
-                     
-
+                    dgv.Rows.Add(pro.Id, pro.ProcessName, pro.MainWindowTitle ,(pro.PeakWorkingSet64/1024)/1024,pro.VirtualMemorySize64/1024,pro.SessionId +1);
                 }
-                
+
             } catch (Exception e)
             {
                 MessageBox.Show("Error al intentar abrir el programa", "Error al Inicio", MessageBoxButtons.OK);
