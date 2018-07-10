@@ -26,12 +26,11 @@ namespace Administrador_Tareas
         {
             dgv.Columns.Add("primera", "ID");
             dgv.Columns.Add("Segunda", "Proceso");
-            dgv.Columns.Add("Tercera", "Nombre");
-            dgv.Columns.Add("Septima", "Ventana");
+            dgv.Columns.Add("Septima", "Programa");
             dgv.Columns.Add("Cuarta", "Memoria RAM");
             dgv.Columns.Add("Quinta", "Memoria Virtual");
             dgv.Columns.Add("Sexta", "CPU");
-            dgv.Columns.Add("Novena", "Estado");
+            //dgv.Columns.Add("Novena", "Estado");
             try
             {
 
@@ -41,7 +40,7 @@ namespace Administrador_Tareas
                 procesos = Process.GetProcesses();
                 foreach (Process pro in procesos)
                 {
-                    dgv.Rows.Add(pro.Id, pro.ProcessName, pro.MainWindowTitle ,(pro.PeakWorkingSet64/1024)/1024,pro.VirtualMemorySize64/1024,pro.SessionId +1);
+                    dgv.Rows.Add(pro.Id, pro.ProcessName, pro.MainWindowTitle ,(pro.PeakWorkingSet64/1024)/1024+" Mb",(pro.VirtualMemorySize64/1024)/1024+" Mb",pro.SessionId +1);
                 }
 
             } catch (Exception e)
