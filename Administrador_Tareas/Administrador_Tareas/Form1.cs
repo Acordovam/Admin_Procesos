@@ -19,7 +19,7 @@ namespace Administrador_Tareas
         public Form1()
         {
             InitializeComponent();
-            timer1.Enabled = true;
+            timer1.Start();
             procesos();
         }
         public void procesos()
@@ -36,11 +36,10 @@ namespace Administrador_Tareas
 
 
                 Process[] procesos;
-                String estado;
                 procesos = Process.GetProcesses();
                 foreach (Process pro in procesos)
                 {
-                    dgv.Rows.Add(pro.Id, pro.ProcessName, pro.MainWindowTitle ,(pro.PeakWorkingSet64/1024)/1024+" Mb",(pro.VirtualMemorySize64/1024)/1024+" Mb",pro.SessionId +1);
+                    dgv.Rows.Add(pro.Id, pro.ProcessName, pro.MainWindowTitle ,(pro.PeakWorkingSet64/1024)/1024+" Mb",pro.VirtualMemorySize64/1024/1024+" Mb",pro.SessionId +1);
                 }
 
             } catch (Exception e)
@@ -48,6 +47,8 @@ namespace Administrador_Tareas
                 MessageBox.Show("Error al intentar abrir el programa", "Error al Inicio", MessageBoxButtons.OK);
 
             }
+            
+
         }
         private void cerrar_Click(object sender, EventArgs e)
         {
