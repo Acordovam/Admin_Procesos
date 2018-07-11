@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using System.Diagnostics;
+using System.Diagnostics; //Librería para usar la variable Process
 
 
 
@@ -20,25 +20,26 @@ namespace Administrador_Tareas
         {
             InitializeComponent();
             timer1.Start();
+            //Se inicializa la función Procesos
             procesos();
         }
-        public void procesos()
+        public void procesos() //Se añaden las colúmnas necesarias
         {
             dgv.Columns.Add("primera", "ID");
             dgv.Columns.Add("Segunda", "Proceso");
-            dgv.Columns.Add("Septima", "Programa");
+            dgv.Columns.Add("Tercera", "Programa");
             dgv.Columns.Add("Cuarta", "Memoria RAM");
             dgv.Columns.Add("Quinta", "Memoria Virtual");
             dgv.Columns.Add("Sexta", "CPU");
             //dgv.Columns.Add("Novena", "Estado");
             try
             {
-
-
-                Process[] procesos;
-                procesos = Process.GetProcesses();
-                foreach (Process pro in procesos)
+                Process[] procesos; //Se crea la matriz de tipo Process con los procesos utilizados
+                procesos = Process.GetProcesses();  //Se llena la matriz de procesos
+                foreach (Process pro in procesos)   //Se declara foreach que es una variable que puede ser entero, string etc
                 {
+                    //Se crean las filas con todos los datos
+                     //Id del proceso, Nombre del proceso, Ventana principal del proceso, RAM en megas, Memoria virtual en Megas, y el número del procesador que realiza el proceso
                     dgv.Rows.Add(pro.Id, pro.ProcessName, pro.MainWindowTitle ,(pro.PeakWorkingSet64/1024)/1024+" Mb",pro.VirtualMemorySize64/1024/1024+" Mb",pro.SessionId +1);
                 }
 
