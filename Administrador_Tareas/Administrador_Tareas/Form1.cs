@@ -19,19 +19,19 @@ namespace Administrador_Tareas
         public Form1()
         {
             InitializeComponent();
-            timer1.Start();
-            //Se inicializa la función Procesos
-            procesos();
-        }
-        public void procesos() //Se añaden las colúmnas necesarias
-        {
+            //Se crean las columnas en el Data Gried View
             dgv.Columns.Add("primera", "ID");
             dgv.Columns.Add("Segunda", "Proceso");
             dgv.Columns.Add("Tercera", "Programa");
             dgv.Columns.Add("Cuarta", "Memoria RAM");
             dgv.Columns.Add("Quinta", "Memoria Virtual");
             dgv.Columns.Add("Sexta", "CPU");
-            //dgv.Columns.Add("Novena", "Estado");
+            timer1.Enabled = true; //Se habilita el Timer
+            timer1.Start(); //Comienza el conteo del tiempo establecido
+            procesos();//Se inicializa la función Procesos
+        }
+        public void procesos() //Se añaden las colúmnas necesarias
+        {
             try
             {
                 Process[] procesos; //Se crea la matriz de tipo Process con los procesos utilizados
@@ -43,7 +43,7 @@ namespace Administrador_Tareas
                     dgv.Rows.Add(pro.Id, pro.ProcessName, pro.MainWindowTitle ,(pro.PeakWorkingSet64/1024)/1024+" Mb",pro.VirtualMemorySize64/1024/1024+" Mb",pro.SessionId +1);
                 }
 
-            } catch (Exception e)
+            } catch (Exception e) //se caputa errores
             {
                 MessageBox.Show("Error al intentar abrir el programa", "Error al Inicio", MessageBoxButtons.OK);
 
@@ -53,6 +53,7 @@ namespace Administrador_Tareas
         }
         private void cerrar_Click(object sender, EventArgs e)
         {
+            timer1.Enabled = false;
             this.Close();
         }
 
@@ -84,6 +85,13 @@ namespace Administrador_Tareas
         private void panel_titulo_Paint(object sender, PaintEventArgs e)
         {
                 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e) //Funcion de lo que hará el Timer cada tiempo establecido previamente
+        {
+            dgv.Rows.Clear();   //Limpia los registros
+            dgv.Refresh();  //Actualiza la data gried view
+            procesos(); //Llama la función Procesos
         }
     }
 }
