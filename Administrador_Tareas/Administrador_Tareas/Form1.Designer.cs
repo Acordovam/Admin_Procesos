@@ -42,6 +42,8 @@
             this.panel_central = new System.Windows.Forms.Panel();
             this.dgv = new System.Windows.Forms.DataGridView();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btn_Kill = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel_titulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maximizar)).BeginInit();
@@ -109,6 +111,8 @@
             // panel_vertical
             // 
             this.panel_vertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.panel_vertical.Controls.Add(this.panel2);
+            this.panel_vertical.Controls.Add(this.btn_Kill);
             this.panel_vertical.Controls.Add(this.panel1);
             this.panel_vertical.Controls.Add(this.button1);
             this.panel_vertical.Dock = System.Windows.Forms.DockStyle.Left;
@@ -158,6 +162,7 @@
             // 
             this.dgv.AllowUserToAddRows = false;
             this.dgv.AllowUserToOrderColumns = true;
+            this.dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -191,6 +196,33 @@
             // 
             this.timer1.Interval = 10000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // btn_Kill
+            // 
+            this.btn_Kill.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Kill.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.btn_Kill.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.btn_Kill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Kill.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Kill.ForeColor = System.Drawing.Color.White;
+            this.btn_Kill.Image = ((System.Drawing.Image)(resources.GetObject("btn_Kill.Image")));
+            this.btn_Kill.Location = new System.Drawing.Point(6, 141);
+            this.btn_Kill.Name = "btn_Kill";
+            this.btn_Kill.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btn_Kill.Size = new System.Drawing.Size(178, 50);
+            this.btn_Kill.TabIndex = 2;
+            this.btn_Kill.Text = "Matar";
+            this.btn_Kill.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_Kill.UseVisualStyleBackColor = true;
+            this.btn_Kill.Click += new System.EventHandler(this.btn_Kill_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.panel2.Location = new System.Drawing.Point(0, 141);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(10, 50);
+            this.panel2.TabIndex = 3;
             // 
             // Form1
             // 
@@ -226,6 +258,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dgv;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btn_Kill;
     }
 }
 

@@ -93,5 +93,11 @@ namespace Administrador_Tareas
             dgv.Refresh();  //Actualiza la data gried view
             procesos(); //Llama la función Procesos
         }
+
+        private void btn_Kill_Click(object sender, EventArgs e)
+        {
+           
+
+        }
     }
 }
