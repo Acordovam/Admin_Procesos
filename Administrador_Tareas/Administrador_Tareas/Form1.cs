@@ -96,7 +96,11 @@ namespace Administrador_Tareas
 
         private void btn_Kill_Click(object sender, EventArgs e)
         {
-           
+         
+        }
+
+        private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }
