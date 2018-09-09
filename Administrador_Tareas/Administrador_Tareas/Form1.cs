@@ -34,6 +34,7 @@ namespace Administrador_Tareas
         {
             try
             {
+                
                 Process[] procesos; //Se crea la matriz de tipo Process con los procesos utilizados
                 procesos = Process.GetProcesses();  //Se llena la matriz de procesos
                 foreach (Process pro in procesos)   //Se declara foreach que es una variable que puede ser entero, string etc
@@ -41,6 +42,7 @@ namespace Administrador_Tareas
                     //Se crean las filas con todos los datos
                      //Id del proceso, Nombre del proceso, Ventana principal del proceso, RAM en megas, Memoria virtual en Megas, y el número del procesador que realiza el proceso
                     dgv.Rows.Add(pro.Id, pro.ProcessName, pro.MainWindowTitle ,(pro.PeakWorkingSet64/1024)/1024+" Mb",pro.VirtualMemorySize64/1024/1024+" Mb",pro.SessionId +1);
+                    dgv.RefreshEdit();
                 }
 
             } catch (Exception e) //se caputa errores
@@ -89,17 +91,53 @@ namespace Administrador_Tareas
 
         private void timer1_Tick(object sender, EventArgs e) //Funcion de lo que hará el Timer cada tiempo establecido previamente
         {
-            dgv.Rows.Clear();   //Limpia los registros
-            dgv.Refresh();  //Actualiza la data gried view
+             dgv.Rows.Clear();   //Limpia los registros
+             dgv.Refresh();  //Actualiza la data gried view
+            
             procesos(); //Llama la función Procesos
         }
 
         private void btn_Kill_Click(object sender, EventArgs e)
         {
-         
+            try {
+
+                string id = dgv.Rows[dgv.CurrentRow.Index].Cells[0].Value.ToString(); //Obtiene el valor de la celda seleccionada
+                Process persona = Process.GetProcessById(int.Parse(id));  //Crea una variable tipo process y le da el valor del id seleccionado previamente
+                persona.Kill(); //Se mata el proceso
+                dgv.Rows.Remove(dgv.CurrentRow); //Removemos la celda de la data
+            
+            }
+            catch (Exception ek){
+
+                MessageBox.Show("Error al intentar matar el proceso", "Error", MessageBoxButtons.OK);
+            }
         }
 
         private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dgv.Visible = true;
+            graficas.Visible = false;
+        }
+
+        private void dgv_Click(object sender, EventArgs e)
+        {
+       
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            dgv.Visible = false;
+            graficas.Visible = true;
+
+        }
+
+        private void panel_vertical_Paint(object sender, PaintEventArgs e)
         {
 
         }
