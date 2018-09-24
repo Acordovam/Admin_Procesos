@@ -32,9 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel_titulo = new System.Windows.Forms.Panel();
             this.minimizar = new System.Windows.Forms.PictureBox();
             this.maximizar = new System.Windows.Forms.PictureBox();
@@ -47,19 +44,20 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.panel_central = new System.Windows.Forms.Panel();
+            this.graficas = new System.Windows.Forms.Panel();
             this.dgv = new System.Windows.Forms.DataGridView();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.graficas = new System.Windows.Forms.Panel();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.performanceCounter1 = new System.Diagnostics.PerformanceCounter();
+            this.label = new System.Windows.Forms.Label();
             this.panel_titulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cerrar)).BeginInit();
             this.panel_vertical.SuspendLayout();
             this.panel_central.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.graficas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.performanceCounter1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_titulo
@@ -227,6 +225,16 @@
             this.panel_central.Size = new System.Drawing.Size(1116, 565);
             this.panel_central.TabIndex = 2;
             // 
+            // graficas
+            // 
+            this.graficas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
+            this.graficas.Controls.Add(this.label);
+            this.graficas.Location = new System.Drawing.Point(0, 0);
+            this.graficas.Name = "graficas";
+            this.graficas.Size = new System.Drawing.Size(1116, 565);
+            this.graficas.TabIndex = 2;
+            this.graficas.Paint += new System.Windows.Forms.PaintEventHandler(this.graficas_Paint);
+            // 
             // dgv
             // 
             this.dgv.AllowUserToAddRows = false;
@@ -270,32 +278,14 @@
             this.timer1.Interval = 10000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // graficas
+            // label
             // 
-            this.graficas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
-            this.graficas.Controls.Add(this.chart1);
-            this.graficas.Location = new System.Drawing.Point(0, 0);
-            this.graficas.Name = "graficas";
-            this.graficas.Size = new System.Drawing.Size(1116, 565);
-            this.graficas.TabIndex = 2;
-            // 
-            // chart1
-            // 
-            this.chart1.BackColor = System.Drawing.SystemColors.Window;
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(0, 0);
-            this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Legend = "Legend1";
-            series1.Name = "RAM";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(382, 267);
-            this.chart1.TabIndex = 0;
-            this.chart1.Text = "chart1";
+            this.label.AutoSize = true;
+            this.label.Location = new System.Drawing.Point(910, 121);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(35, 13);
+            this.label.TabIndex = 0;
+            this.label.Text = "label1";
             // 
             // Form1
             // 
@@ -314,9 +304,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.cerrar)).EndInit();
             this.panel_vertical.ResumeLayout(false);
             this.panel_central.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.graficas.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            this.graficas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.performanceCounter1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -338,7 +329,8 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel graficas;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Diagnostics.PerformanceCounter performanceCounter1;
+        private System.Windows.Forms.Label label;
     }
 }
 

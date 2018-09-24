@@ -27,4 +27,4 @@ C:\Users\aleja\OneDrive\Documents\Repositorios\Admin_Procesos\Administrador_Tare
 C:\Users\aleja\OneDrive\Documents\Repositorios\Admin_Procesos\Administrador_Tareas\Administrador_Tareas\obj\Debug\Administrador_Tareas.csproj.CoreCompileInputs.cache
 C:\Users\aleja\OneDrive\Documents\Repositorios\Admin_Procesos\Administrador_Tareas\Administrador_Tareas\obj\Debug\Administrador_Tareas.exe
 C:\Users\aleja\OneDrive\Documents\Repositorios\Admin_Procesos\Administrador_Tareas\Administrador_Tareas\obj\Debug\Administrador_Tareas.pdb
-C:\Users\aleja\OneDrive\Documents\Repositorios\Admin_Procesos\Administrador_Tareas\Administrador_Tareas\obj\Debug\PerformanceInfo.resources
+C:\Users\aleja\OneDrive\Documents\Repositorios\Admin_Procesos\Administrador_Tareas\Administrador_Tareas\obj\Debug\Administrador_Tareas.Form1.resources

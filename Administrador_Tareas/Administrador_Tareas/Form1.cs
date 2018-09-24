@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Diagnostics; //Librería para usar la variable Process
+using System.Management;
+using System.Management.Instrumentation;
+using System.Threading;
+
 
 
 
@@ -29,6 +33,22 @@ namespace Administrador_Tareas
             timer1.Enabled = true; //Se habilita el Timer
             timer1.Start(); //Comienza el conteo del tiempo establecido
             procesos();//Se inicializa la función Procesos
+          
+
+        }
+        public void Cprocesador()
+        {
+            //PROCESADOR
+            PerformanceCounter cpuCounter = new PerformanceCounter();
+            cpuCounter.CategoryName = "Processor";
+            cpuCounter.CounterName = "% Processor Time";
+            cpuCounter.InstanceName = "_Total";
+            String total= (cpuCounter.NextValue() + "%");
+            label.Text = total;
+            Thread.Sleep(1000);
+            //PROCESADOR FIN
+
+
         }
         public void procesos() //Se añaden las colúmnas necesarias
         {
@@ -44,14 +64,13 @@ namespace Administrador_Tareas
                     dgv.Rows.Add(pro.Id, pro.ProcessName, pro.MainWindowTitle ,(pro.PeakWorkingSet64/1024)/1024+" Mb",pro.VirtualMemorySize64/1024/1024+" Mb",pro.SessionId +1);
                     dgv.RefreshEdit();
                 }
-
+                Cprocesador();
             } catch (Exception e) //se caputa errores
             {
                 MessageBox.Show("Error al intentar abrir el programa", "Error al Inicio", MessageBoxButtons.OK);
 
             }
-            
-
+          
         }
         private void cerrar_Click(object sender, EventArgs e)
         {
@@ -65,7 +84,7 @@ namespace Administrador_Tareas
             maximizar.Visible = false;
             minimizar.Visible = true;
         }
-
+        
         private void minimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Normal;
@@ -138,6 +157,16 @@ namespace Administrador_Tareas
         }
 
         private void panel_vertical_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void graficas_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
         {
 
         }
