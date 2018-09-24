@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Diagnostics; //Librería para usar la variable Process
-using System.Management;
-using System.Management.Instrumentation;
 using System.Threading;
+using System.Timers;
+using System.Management;
 
 
 
@@ -36,20 +36,60 @@ namespace Administrador_Tareas
           
 
         }
-        public void Cprocesador()
+
+        //MUESTRA INFORMACION
+         private void MuestraInformacion(string clave)
         {
-            //PROCESADOR
-            PerformanceCounter cpuCounter = new PerformanceCounter();
-            cpuCounter.CategoryName = "Processor";
-            cpuCounter.CounterName = "% Processor Time";
-            cpuCounter.InstanceName = "_Total";
-            String total= (cpuCounter.NextValue() + "%");
-            label.Text = total;
-            Thread.Sleep(1000);
-            //PROCESADOR FIN
+            ManagementObjectSearcher searcher = new ManagementObjectSearcher("select * from " + clave);
+            listView1.Items.Clear();
+            ListViewGroup lstvg;
+            try
+            {
+                foreach (ManagementObject objeto in searcher.Get())
+                {
+                    try
+                    {
+                        lstvg = listView1.Groups.Add(objeto["Name"].ToString(), objeto["Name"].ToString());
+                    }
+                    catch
+                    {
 
+                        lstvg = listView1.Groups.Add(objeto["Name"].ToString(), objeto["Name"].ToString());
 
+                    }
+                    if (objeto.Properties.Count <= 0)
+                    {
+                        MessageBox.Show("La Información No Está Disponible", "No Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+
+                    foreach (PropertyData PropiedadObjeto in objeto.Properties)
+                    {
+                        ListViewItem listViewItem1 = new ListViewItem(lstvg);
+                        listViewItem1.Text = PropiedadObjeto.Name;
+
+                        if (PropiedadObjeto.Value != null && PropiedadObjeto.Value.ToString() != "")
+                        {
+                            listViewItem1.SubItems.Add(PropiedadObjeto.Value.ToString());
+                            listView1.Items.Add(listViewItem1);
+                        }
+                        else
+                        {
+                            // Informacion nula
+                        }
+
+                    }
+                }
+            }
+
+            catch (Exception exp)
+            {
+                MessageBox.Show("No se pueden obtener datos \n" + exp.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
+
+        //MUESTRA INFORMACION FIN
+
         public void procesos() //Se añaden las colúmnas necesarias
         {
             try
@@ -64,7 +104,6 @@ namespace Administrador_Tareas
                     dgv.Rows.Add(pro.Id, pro.ProcessName, pro.MainWindowTitle ,(pro.PeakWorkingSet64/1024)/1024+" Mb",pro.VirtualMemorySize64/1024/1024+" Mb",pro.SessionId +1);
                     dgv.RefreshEdit();
                 }
-                Cprocesador();
             } catch (Exception e) //se caputa errores
             {
                 MessageBox.Show("Error al intentar abrir el programa", "Error al Inicio", MessageBoxButtons.OK);
@@ -169,6 +208,91 @@ namespace Administrador_Tareas
         private void chart1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            MuestraInformacion("Win32_Processor");
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            MuestraInformacion("Win32_BaseBoard");
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            MuestraInformacion("Win32_BIOS");
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            MuestraInformacion("Win32_VideoController");
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            MuestraInformacion("Win32_SoundDevice");
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            MuestraInformacion("Win32_DiskDrive");
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            MuestraInformacion("Win32_DiskPartition");
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            MuestraInformacion("Win32_CacheMemory");
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            MuestraInformacion("Win32_PhysicalMemory");
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            MuestraInformacion("Win32_Process");
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            MuestraInformacion("Win32_NetworkAdapter");
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            MuestraInformacion("Win32_Account");
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            MuestraInformacion("Win32_USBController");
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            MuestraInformacion("Win32_Keyboard");
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            MuestraInformacion("Win32_Bus");
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            MuestraInformacion("Win32_Group");
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            MuestraInformacion("Win32_Thread");
         }
     }
 }
