@@ -179,7 +179,8 @@ namespace Administrador_Tareas
         private void button1_Click(object sender, EventArgs e)
         {
             dgv.Visible = true;
-            graficas.Visible = false;
+            datos.Visible = false;
+            rendimiento.Visible = false;
         }
 
         private void dgv_Click(object sender, EventArgs e)
@@ -191,7 +192,8 @@ namespace Administrador_Tareas
         private void button2_Click(object sender, EventArgs e)
         {
             dgv.Visible = false;
-            graficas.Visible = true;
+            datos.Visible = true;
+            rendimiento.Visible = false;
 
         }
 
@@ -244,7 +246,30 @@ namespace Administrador_Tareas
         {
             MuestraInformacion("Win32_DiskPartition");
         }
+        void memoriaRam()
+        {
+            try
+            {
+                ManagementObjectSearcher searcher =
+                    new ManagementObjectSearcher("root\\CIMV2",
+                    "SELECT TotalPhysicalMemory FROM Win32_ComputerSystem");
 
+                foreach (ManagementObject queryObj in searcher.Get())
+                {
+                    double dblMemory;
+                    if (double.TryParse(Convert.ToString(queryObj["TotalPhysicalMemory"]), out dblMemory))
+                    {
+                        Convert.ToInt32(dblMemory / (1024 * 1024));
+                        Convert.ToInt32(dblMemory / (1024 * 1024 * 1024));
+                    }
+                }
+            }
+            catch (ManagementException e)
+            {
+
+            }
+
+        }
         private void button10_Click(object sender, EventArgs e)
         {
             MuestraInformacion("Win32_CacheMemory");
@@ -293,6 +318,13 @@ namespace Administrador_Tareas
         private void button19_Click(object sender, EventArgs e)
         {
             MuestraInformacion("Win32_Thread");
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            dgv.Visible = false;
+            datos.Visible = false;
+            rendimiento.Visible = true;
         }
     }
 }

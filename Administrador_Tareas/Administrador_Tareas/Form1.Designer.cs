@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel_titulo = new System.Windows.Forms.Panel();
             this.minimizar = new System.Windows.Forms.PictureBox();
             this.maximizar = new System.Windows.Forms.PictureBox();
@@ -44,7 +44,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.panel_central = new System.Windows.Forms.Panel();
-            this.graficas = new System.Windows.Forms.Panel();
+            this.datos = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
@@ -68,13 +68,16 @@
             this.button17 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.button20 = new System.Windows.Forms.Button();
+            this.rendimiento = new System.Windows.Forms.Panel();
             this.panel_titulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cerrar)).BeginInit();
             this.panel_vertical.SuspendLayout();
             this.panel_central.SuspendLayout();
-            this.graficas.SuspendLayout();
+            this.datos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -136,6 +139,8 @@
             // panel_vertical
             // 
             this.panel_vertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.panel_vertical.Controls.Add(this.panel4);
+            this.panel_vertical.Controls.Add(this.button20);
             this.panel_vertical.Controls.Add(this.panel3);
             this.panel_vertical.Controls.Add(this.button2);
             this.panel_vertical.Controls.Add(this.panel2);
@@ -235,7 +240,7 @@
             // panel_central
             // 
             this.panel_central.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            this.panel_central.Controls.Add(this.graficas);
+            this.panel_central.Controls.Add(this.datos);
             this.panel_central.Controls.Add(this.dgv);
             this.panel_central.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_central.Location = new System.Drawing.Point(184, 35);
@@ -243,32 +248,34 @@
             this.panel_central.Size = new System.Drawing.Size(1116, 565);
             this.panel_central.TabIndex = 2;
             // 
-            // graficas
+            // datos
             // 
-            this.graficas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
-            this.graficas.Controls.Add(this.button19);
-            this.graficas.Controls.Add(this.button18);
-            this.graficas.Controls.Add(this.button17);
-            this.graficas.Controls.Add(this.button16);
-            this.graficas.Controls.Add(this.button15);
-            this.graficas.Controls.Add(this.button14);
-            this.graficas.Controls.Add(this.button13);
-            this.graficas.Controls.Add(this.button12);
-            this.graficas.Controls.Add(this.button11);
-            this.graficas.Controls.Add(this.button10);
-            this.graficas.Controls.Add(this.button9);
-            this.graficas.Controls.Add(this.button8);
-            this.graficas.Controls.Add(this.button7);
-            this.graficas.Controls.Add(this.button6);
-            this.graficas.Controls.Add(this.button5);
-            this.graficas.Controls.Add(this.button4);
-            this.graficas.Controls.Add(this.button3);
-            this.graficas.Controls.Add(this.listView1);
-            this.graficas.Location = new System.Drawing.Point(0, 0);
-            this.graficas.Name = "graficas";
-            this.graficas.Size = new System.Drawing.Size(1116, 565);
-            this.graficas.TabIndex = 2;
-            this.graficas.Paint += new System.Windows.Forms.PaintEventHandler(this.graficas_Paint);
+            this.datos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
+            this.datos.Controls.Add(this.rendimiento);
+            this.datos.Controls.Add(this.button19);
+            this.datos.Controls.Add(this.button18);
+            this.datos.Controls.Add(this.button17);
+            this.datos.Controls.Add(this.button16);
+            this.datos.Controls.Add(this.button15);
+            this.datos.Controls.Add(this.button14);
+            this.datos.Controls.Add(this.button13);
+            this.datos.Controls.Add(this.button12);
+            this.datos.Controls.Add(this.button11);
+            this.datos.Controls.Add(this.button10);
+            this.datos.Controls.Add(this.button9);
+            this.datos.Controls.Add(this.button8);
+            this.datos.Controls.Add(this.button7);
+            this.datos.Controls.Add(this.button6);
+            this.datos.Controls.Add(this.button5);
+            this.datos.Controls.Add(this.button4);
+            this.datos.Controls.Add(this.button3);
+            this.datos.Controls.Add(this.listView1);
+            this.datos.Location = new System.Drawing.Point(0, 0);
+            this.datos.Name = "datos";
+            this.datos.Size = new System.Drawing.Size(1116, 565);
+            this.datos.TabIndex = 2;
+            this.datos.Visible = false;
+            this.datos.Paint += new System.Windows.Forms.PaintEventHandler(this.graficas_Paint);
             // 
             // button4
             // 
@@ -308,24 +315,24 @@
             this.dgv.AllowUserToOrderColumns = true;
             this.dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle39.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle39.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle39.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle40.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle40.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(74)))));
-            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv.DefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv.Location = new System.Drawing.Point(0, 0);
             this.dgv.Name = "dgv";
@@ -505,6 +512,41 @@
             this.button19.UseVisualStyleBackColor = true;
             this.button19.Click += new System.EventHandler(this.button19_Click);
             // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.panel4.Location = new System.Drawing.Point(0, 257);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(10, 50);
+            this.panel4.TabIndex = 7;
+            // 
+            // button20
+            // 
+            this.button20.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button20.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.button20.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.button20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button20.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button20.ForeColor = System.Drawing.Color.White;
+            this.button20.Image = ((System.Drawing.Image)(resources.GetObject("button20.Image")));
+            this.button20.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button20.Location = new System.Drawing.Point(6, 257);
+            this.button20.Name = "button20";
+            this.button20.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button20.Size = new System.Drawing.Size(178, 50);
+            this.button20.TabIndex = 6;
+            this.button20.Text = "Rendimiento";
+            this.button20.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button20.UseVisualStyleBackColor = true;
+            this.button20.Click += new System.EventHandler(this.button20_Click);
+            // 
+            // rendimiento
+            // 
+            this.rendimiento.Location = new System.Drawing.Point(0, 0);
+            this.rendimiento.Name = "rendimiento";
+            this.rendimiento.Size = new System.Drawing.Size(1113, 562);
+            this.rendimiento.TabIndex = 8;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -522,7 +564,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cerrar)).EndInit();
             this.panel_vertical.ResumeLayout(false);
             this.panel_central.ResumeLayout(false);
-            this.graficas.ResumeLayout(false);
+            this.datos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.ResumeLayout(false);
 
@@ -544,7 +586,7 @@
         private System.Windows.Forms.Button btn_Kill;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Panel graficas;
+        private System.Windows.Forms.Panel datos;
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
@@ -566,6 +608,9 @@
         private System.Windows.Forms.Button button17;
         private System.Windows.Forms.Button button18;
         private System.Windows.Forms.Button button19;
+        private System.Windows.Forms.Panel rendimiento;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button button20;
     }
 }
 
